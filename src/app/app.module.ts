@@ -24,6 +24,9 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import {FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { AddWatchComponent } from './add-watch/add-watch.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { WatchService } from './services/watch.service';
+import { DataService } from './services/data.service';
+import { InMemoryWebApiModule, HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 
 
@@ -59,10 +62,11 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
+    InMemoryWebApiModule.forRoot(DataService),
+    HttpClientInMemoryWebApiModule.forRoot(DataService)
   ],
-  providers: [],
+  providers: [WatchService,DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

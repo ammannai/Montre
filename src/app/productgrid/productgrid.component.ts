@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Montre } from '../montre';
 
 @Component({
   selector: 'app-productgrid',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductgridComponent implements OnInit {
 
+@Input() description : String ;
+@Input() price : Number;
   constructor() { }
 
   ngOnInit() {

@@ -5,7 +5,8 @@
         <div class="panel-login panel">
             <div class="panel-heading">
                 <div class="row mb_20 headerTitle">
-                    <h3>Register</h3>
+                    <h3>Register {{sum}}</h3>
+                    <h3> The sum of two integers is  {{sum}}</h3>
                 </div>
                 <hr>
             </div>
@@ -17,8 +18,7 @@
                                 <div class="form-group">
                                     <input class="full-with-form mt_30" type="text" placeholder="First name" formControlName="firstName">
                                 </div>
-                                <div *ngIf="userForm.controls['firstName'].invalid && 
-            (userForm.controls['firstName'].dirty || userForm.controls['firstName'].touched)" class="alert alert-danger">
+                                <div *ngIf="userForm.controls['firstName'].invalid &&  (userForm.controls['firstName'].dirty || userForm.controls['firstName'].touched)" class="alert alert-danger">
                                     <div *ngIf="userForm.controls['firstName'].errors.required">
                                         FisrtName is required
                                     </div>

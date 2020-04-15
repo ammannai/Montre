@@ -11,22 +11,20 @@
             </ul>
             <div class="tab-content clearfix box">
                 <div class="tab-pane active" id="nArrivals">
-                    <div class="nArrivals owl-carousel">
+                    <div class="nArrivals owl-carousel" *ngFor='let i of montres'>
 
-                        <app-productgrid></app-productgrid>
-                        <app-productgrid></app-productgrid>
-                        <app-productgrid></app-productgrid>
-                        <app-productgrid></app-productgrid>
-                        <app-productgrid></app-productgrid>
-                        <app-productgrid></app-productgrid>
+                        
+                        <app-productgrid price={{i.price}} description={{i.description}}></app-productgrid>
                     </div>
                 </div>
                 <div class="tab-pane" id="Bestsellers">
                     <div class="Bestsellers owl-carousel">
+                    
                     </div>
                 </div>
                 <div class="tab-pane" id="Featured">
                     <div class="Featured owl-carousel">
+                    
                         <div class="product-grid">
                             <div class="item">
                                 <div class="product-thumb  mb_30">

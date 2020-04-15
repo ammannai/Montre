@@ -8,6 +8,8 @@ import { AboutComponent } from './about/about.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { AddWatchComponent } from './add-watch/add-watch.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { ProductgridComponent } from './productgrid/productgrid.component';
+import { ProductsComponent } from './products/products.component';
 
 
 const routes: Routes = [
@@ -18,6 +20,7 @@ const routes: Routes = [
    {path:"about",  component : AboutComponent},
    {path :"addWatch", component : AddWatchComponent},
    {path :"forgot", component : ForgotpasswordComponent},
+   {path : "products" , component : ProductsComponent},
    {path:"**" , component : NotfoundComponent},
    
 ];
