@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { User } from "../user";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { WatchService } from '../services/watch.service';
+import { MustMatch } from '../validators/mustMatch';
 
 @Component({
   selector: "app-signup",
@@ -28,9 +29,10 @@ export class SignupComponent implements OnInit {
       ],
        lastName: ["",Validators.required],
        email: ["",[Validators.required,Validators.email]],
-       tel: ["",[Validators.required,Validators.minLength(8)]],
-       password: ["",[Validators.required,Validators.minLength(5)]],
+       tel: ["",[Validators.required,Validators.maxLength(8)]],
+       password: ["",[Validators.required,Validators.minLength(5),Validators.pattern(/^(?=\D*\d)(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z]).{8,30}$/)]],
        confirmPassword: ["",[Validators.required,Validators.minLength(5)]],
+       validator: MustMatch('password', 'confirmPassword')
     });
   }
   saveUser(User: any) {
