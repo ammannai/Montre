@@ -10,6 +10,8 @@ import { AddWatchComponent } from './add-watch/add-watch.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { ProductgridComponent } from './productgrid/productgrid.component';
 import { ProductsComponent } from './products/products.component';
+import { AdminComponent } from './admin/admin.component';
+import { WatchInfoComponent } from './watch-info/watch-info.component';
 
 
 const routes: Routes = [
@@ -21,7 +23,10 @@ const routes: Routes = [
    {path :"addWatch", component : AddWatchComponent},
    {path :"forgot", component : ForgotpasswordComponent},
    {path : "products" , component : ProductsComponent},
-   {path:"**" , component : NotfoundComponent},
+   {path : "admin" , component : AdminComponent},
+   {path : "watch/:id ", component : WatchInfoComponent},
+   {path : "update/:id", component : WatchInfoComponent},
+   {path:"**" , component : NotfoundComponent}
    
 ];
 

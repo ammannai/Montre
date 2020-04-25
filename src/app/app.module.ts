@@ -27,6 +27,11 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
 import { WatchService } from './services/watch.service';
 import { DataService } from './services/data.service';
 import { InMemoryWebApiModule, HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { AdminComponent } from './admin/admin.component';
+import { UserService } from './services/user.service';
+import { WatchInfoComponent } from './watch-info/watch-info.component';
+import { UpdateWatchComponent } from './update-watch/update-watch.component';
 
 
 
@@ -54,6 +59,9 @@ import { InMemoryWebApiModule, HttpClientInMemoryWebApiModule } from 'angular-in
     NotfoundComponent,
     AddWatchComponent,
     ForgotpasswordComponent,
+    AdminComponent,
+    WatchInfoComponent,
+    UpdateWatchComponent,
     
    
    
@@ -63,10 +71,11 @@ import { InMemoryWebApiModule, HttpClientInMemoryWebApiModule } from 'angular-in
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     InMemoryWebApiModule.forRoot(DataService),
     HttpClientInMemoryWebApiModule.forRoot(DataService)
   ],
-  providers: [WatchService,DataService],
+  providers: [WatchService,DataService,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

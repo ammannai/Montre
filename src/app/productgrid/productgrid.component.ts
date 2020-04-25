@@ -8,8 +8,8 @@ import { Montre } from '../montre';
 })
 export class ProductgridComponent implements OnInit {
 
-@Input() description : String ;
-@Input() price : Number;
+@Input() montre : Montre ;
+
   constructor() { }
 
   ngOnInit() {

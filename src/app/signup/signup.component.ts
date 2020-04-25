@@ -20,7 +20,6 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
     this.user = new User("", "", "", "", "", "");
-    this.sum = this.watchService.calcul(5,5);
     this.userForm = this.formBuilder.group({
      id: [""],
       firstName: [
