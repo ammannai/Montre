@@ -20,6 +20,11 @@
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "^8.2.14",
     "angular-in-memory-web-api": "^0.10.0",
+    "bcrypt": "^4.0.1",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.13",
+    "nodemon": "^2.0.3",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
@@ -44,5 +49,20 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
     "typescript": "~3.5.3"
-  }
+  },
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.",
+  "main": "(server.js)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ammannai/Montre.git"
+  },
+  "keywords": [
+    "amine"
+  ],
+  "author": "amine",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ammannai/Montre/issues"
+  },
+  "homepage": "https://github.com/ammannai/Montre#readme"
 }

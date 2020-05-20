@@ -10,7 +10,7 @@ import { tap, catchError } from 'rxjs/operators';
 export class UserService {
 
   constructor( private http : HttpClient) { }
-  private userUrl : 'api/users';
+  private userUrl :string = 'http://localhost:3000/api/user/';
   // Log function for Console
   private log(log: string) {
     console.info(log);
@@ -33,12 +33,13 @@ getUsers(): Observable<User[]> {
 }
 // Add user 
 addUser(user: User): Observable<User> {
-  const url = `${this.userUrl}`;
-  const httpOptions = {
-    headers: new HttpHeaders({ 'content-type': 'application/json' })
-  };
-  return this.http.post<User>(url, user, httpOptions).pipe(
-    tap(_ => this.log(`ajouter user id= ${user.id}`)),
+  console.log('URL', this.userUrl);
+  
+  const url = `${this.userUrl}signup`;
+  console.log('url in service',url);
+  
+  return this.http.post<User>(url, user).pipe(
+    tap(_ => this.log(`ajouter user id= ${user._id}`)),
     catchError((this.handleError<any>('ajouter user')))
   );
 }

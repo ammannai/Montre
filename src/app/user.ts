@@ -1,11 +1,11 @@
 export class User {
     constructor(
-        public id : Number,
-        public firstName : String ,
-        public lastName : String,
-        public email : String ,
-        public tel : String ,
-        public password : String , 
-        public confirmPassword : String,
+        public _id : string,
+        public firstName : string ,
+        public lastName : string,
+        public email : string ,
+        public tel : string ,
+        public password : string , 
+        public confirmPassword : string,
     ){}
 }

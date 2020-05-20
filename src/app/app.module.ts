@@ -72,8 +72,8 @@ import { UpdateWatchComponent } from './update-watch/update-watch.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    InMemoryWebApiModule.forRoot(DataService),
-    HttpClientInMemoryWebApiModule.forRoot(DataService)
+    //InMemoryWebApiModule.forRoot(DataService),
+    //HttpClientInMemoryWebApiModule.forRoot(DataService)
   ],
   providers: [WatchService,DataService,UserService],
   bootstrap: [AppComponent]

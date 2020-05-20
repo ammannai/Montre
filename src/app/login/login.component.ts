@@ -8,19 +8,22 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 loginForm : FormGroup ;
-username : String ;
-password : String ; 
+model : any={} ;
   constructor(
     private formBuilder : FormBuilder
   ) { }
 
   ngOnInit() {
     this.loginForm= this.formBuilder.group({
-      username : ["",Validators.required],
-      password : ["",[Validators.required,Validators.pattern(/^(?=\D*\d)(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z]).{8,30}$/)]]
+      email : [""],
+      password : [""]
     }
 
     )
+  }
+  login(form : any){
+    console.log("This is my credentials" , this.model);
+    
   }
   connetctUser(username : String , password: String){
     if (username == "admin" && password =="Admin123&&"){

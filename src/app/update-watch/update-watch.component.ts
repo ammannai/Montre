@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class UpdateWatchComponent implements OnInit {
 montre : Montre ;
-id : number ; 
+id : string ; 
   constructor(
     private watchService : WatchService ,
     private activatedRoute : ActivatedRoute,
@@ -18,7 +18,7 @@ id : number ;
   ) { }
 
   ngOnInit() {
-    this.id = +this.activatedRoute.snapshot.paramMap.get('id');
+    this.id = this.activatedRoute.snapshot.paramMap.get('id');
 this.watchService.displayMontre(this.id).subscribe (
 response=> {
 this.montre= response;

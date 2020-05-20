@@ -43,7 +43,7 @@ addMontre(montre: Montre): Observable<Montre> {
     headers: new HttpHeaders({ 'content-type': 'application/json' })
   };
   return this.http.post<Montre>(url, montre, httpOptions).pipe(
-    tap(_ => this.log(`ajouter montre id= ${montre.id}`)),
+    tap(_ => this.log(`ajouter montre id= ${montre._id}`)),
     catchError((this.handleError<any>('ajouter montre')))
   );
 }  log(arg0: string): void {

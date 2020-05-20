@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class AdminComponent implements OnInit {
 users : User[];
-montres: Montre[];
+montres: any;
 montre: Montre;
 tableHeaders : string[];
 tableHeadersMontre: string[];
@@ -55,7 +55,7 @@ getWathTable(){
 }
 
 updateWatch(w:Montre){
-this.router.navigate([`updating/${w.id}`]);
+this.router.navigate([`updating/${w._id}`]);
 
 }
   }

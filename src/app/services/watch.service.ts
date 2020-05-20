@@ -10,7 +10,7 @@ export class WatchService {
 
   constructor( private http : HttpClient) { }
   
-  private montreUrl = 'api/montres';
+  private montreUrl = 'http://localhost:3000/';
 
   // Log function for Console
   private log(log: string) {
@@ -25,37 +25,36 @@ export class WatchService {
     };
 }
 //Return all montres
-getMontres(): Observable<Montre[]> {
-  return this.http.get<Montre[]>(this.montreUrl).pipe(
-    tap(_ => this.log('fetched montre')),
-    catchError(this.handleError('get Montres', []))
-  );
-}
+getMontres() {
+  const  url= `${this.montreUrl}api/allwatches`
+    return this.http.get<{watches: any, message:String}>(url).pipe(
+      tap(_ => this.log('fetched montre')),
+      catchError(this.handleError('get Montres', []))
+    );
+  }
 // Delete Montre
 deleteMontre(montre: Montre): Observable<Montre> {
-  const url = `${this.montreUrl}/${montre.id}`;
-  const httpOptions = {
-    headers: new HttpHeaders({ 'content-type': 'application/json' })
-  };
-  return this.http.delete<Montre>(url, httpOptions).pipe(
-    tap(_ => this.log(`delete montre id= ${montre.id}`)),
+  const url = `${this.montreUrl}api/watches/${montre._id}`;
+  return this.http.delete<Montre>(url).pipe(
+    tap(_ => this.log(`delete montre id= ${montre._id}`)),
     catchError((this.handleError<any>('Delete montre')))
   );
 }
 // Add Montre
 addMontre(montre: Montre): Observable<Montre> {
-  const url = `${this.montreUrl}`;
+  const url = `${this.montreUrl}api/montres`;
+  console.log("URL in service",url);
   const httpOptions = {
     headers: new HttpHeaders({ 'content-type': 'application/json' })
   };
   return this.http.post<Montre>(url, montre, httpOptions).pipe(
-    tap(_ => this.log(`ajouter montre id= ${montre.id}`)),
+    tap(_ => this.log(`ajouter montre id= ${montre._id}`)),
     catchError((this.handleError<any>('ajouter montre')))
   );
 }
  // Display Montre by Id
- displayMontre(id: number): Observable<Montre> {
-  const url = `${this.montreUrl}/${id}`;
+ displayMontre(id: string): Observable<Montre> {
+  const url = `${this.montreUrl}api/watches/${id}`;
   const httpOptions = {
     headers: new HttpHeaders({ 'content-type': 'application/json' })
   };
@@ -66,11 +65,9 @@ addMontre(montre: Montre): Observable<Montre> {
 }
  // Update Montre by Id
  updateMontre(montre: Montre): Observable<Montre> {
-  const httpOptions = {
-    headers: new HttpHeaders({ 'content-Type': 'application/json'})
-  };
-  return this.http.put(this.montreUrl, montre, httpOptions).pipe(
-    tap(_ => this.log(`updated montre id=${montre.id}`)),
+  const url = `${this.montreUrl}api/watches/${montre._id}`;
+  return this.http.put(url, montre).pipe(
+    tap(_ => this.log(`updated montre id=${montre._id}`)),
     catchError(this.handleError<any>('updated montre'))
   );
 }

@@ -8,7 +8,7 @@ import { WatchService } from '../services/watch.service';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-montres : Montre[];
+montres : any;
   constructor(
     private watchService : WatchService
   ) { }

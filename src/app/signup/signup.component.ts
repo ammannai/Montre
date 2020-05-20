@@ -3,6 +3,7 @@ import { User } from "../user";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { WatchService } from '../services/watch.service';
 import { MustMatch } from '../validators/mustMatch';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: "app-signup",
@@ -11,17 +12,17 @@ import { MustMatch } from '../validators/mustMatch';
 })
 export class SignupComponent implements OnInit {
   user: User;
-  id: number;
+  id: string;
   userForm: FormGroup;
   sum:number ;
   constructor(
      private formBuilder: FormBuilder ,
-     private watchService : WatchService ) {}
+     private userService : UserService ) {}
 
   ngOnInit() {
-    this.user = new User("", "", "", "", "", "");
+    this.user = new User('',"", "", "", "", "", "");
     this.userForm = this.formBuilder.group({
-     id: [""],
+     
       firstName: [
         "",
         [Validators.required, Validators.maxLength(8), Validators.minLength(2)],
@@ -34,7 +35,13 @@ export class SignupComponent implements OnInit {
        validator: MustMatch('password', 'confirmPassword')
     });
   }
-  saveUser(User: any) {
+  saveUser(i: any) {
     console.log("User added succefully", this.userForm.value);
+    this.userService.addUser(this.userForm.value).subscribe(
+      data => {
+        console.log('Data',data);
+        
+      }
+    )
   }
 }
