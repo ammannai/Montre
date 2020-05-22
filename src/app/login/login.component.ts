@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,8 @@ export class LoginComponent implements OnInit {
 loginForm : FormGroup ;
 model : any={} ;
   constructor(
-    private formBuilder : FormBuilder
+    private formBuilder : FormBuilder,
+    private userService : UserService
   ) { }
 
   ngOnInit() {
@@ -21,7 +23,7 @@ model : any={} ;
 
     )
   }
-  login(form : any){
+  login(user : any){
     console.log("This is my credentials" , this.model);
     
   }

@@ -43,4 +43,17 @@ addUser(user: User): Observable<User> {
     catchError((this.handleError<any>('ajouter user')))
   );
 }
+login(user : any){
+  console.log("Here in login service",user);
+  const url= `${this.userUrl}signin`; 
+console.log("my url", url);
+
+this.http.post(url, user).subscribe(
+  res => {
+  console.log("res",res);
+  
+  }
+);
+
+}
 }
