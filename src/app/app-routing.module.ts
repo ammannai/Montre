@@ -12,6 +12,7 @@ import { ProductgridComponent } from './productgrid/productgrid.component';
 import { ProductsComponent } from './products/products.component';
 import { AdminComponent } from './admin/admin.component';
 import { WatchInfoComponent } from './watch-info/watch-info.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 
 const routes: Routes = [
@@ -23,7 +24,7 @@ const routes: Routes = [
    {path :"addWatch", component : AddWatchComponent},
    {path :"forgot", component : ForgotpasswordComponent},
    {path : "products" , component : ProductsComponent},
-   {path : "admin" , component : AdminComponent},
+   {path : "admin" , component : AdminComponent,canActivate :[AuthGuardService] },
    {path : "watch/:id ", component : WatchInfoComponent},
    {path : "update/:id", component : WatchInfoComponent},
    {path:"**" , component : NotfoundComponent}

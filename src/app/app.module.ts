@@ -27,11 +27,13 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
 import { WatchService } from './services/watch.service';
 import { DataService } from './services/data.service';
 import { InMemoryWebApiModule, HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AdminComponent } from './admin/admin.component';
 import { UserService } from './services/user.service';
 import { WatchInfoComponent } from './watch-info/watch-info.component';
 import { UpdateWatchComponent } from './update-watch/update-watch.component';
+import { AuthInterceptor } from './services/auth-interceptor';
+import { AuthGuardService } from './services/auth-guard.service';
 
 
 
@@ -75,7 +77,8 @@ import { UpdateWatchComponent } from './update-watch/update-watch.component';
     InMemoryWebApiModule.forRoot(DataService),
     HttpClientInMemoryWebApiModule.forRoot(DataService)
   ],
-  providers: [WatchService,DataService,UserService],
+  providers: [WatchService,DataService,UserService,AuthGuardService,{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
